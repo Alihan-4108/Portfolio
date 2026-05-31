@@ -5,26 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Alihan Aydın | Game Developer</title>
 
-  <!-- ── SEO ─────────────────────────────────────── -->
   <meta name="description" content="Alihan Aydın — Unity & C# game developer based in Kocaeli, Türkiye. Explore the games, prototypes and Unity editor tools I've built.">
   <meta name="author" content="Alihan Aydın">
   <meta name="keywords" content="Alihan Aydın, Game Developer, Unity, C#, Game Programmer, Oyun Geliştirici, Portfolio">
   <meta name="theme-color" content="#0d0d0d">
 
-  <!-- ── OPEN GRAPH (LinkedIn / Facebook / WhatsApp önizleme) ─── -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Alihan Aydın | Game Developer">
   <meta property="og:description" content="Unity & C# game developer. Explore the games, prototypes and Unity editor tools I've built.">
-  <!-- ✏️ Paylaşım önizlemesi için images/og-cover.png ekle (1200×630). Siteyi yayınlayınca og:url/og:image'i tam adresle (https://...) güncelle. -->
+
   <meta property="og:image" content="images/og-cover.png">
 
-  <!-- ── TWITTER CARD ────────────────────────────── -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Alihan Aydın | Game Developer">
   <meta name="twitter:description" content="Unity & C# game developer. Explore the games, prototypes and Unity editor tools I've built.">
   <meta name="twitter:image" content="images/og-cover.png">
 
-  <!-- ── FAVICON (gömülü SVG monogram) ───────────── -->
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230d0d0d'/%3E%3Ctext x='50' y='73' font-family='Arial,sans-serif' font-size='64' font-weight='700' fill='%23f97316' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -57,7 +53,6 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ── NOISE OVERLAY ─────────────────────────── */
     body::before {
       content: '';
       position: fixed; inset: 0; z-index: 0;
@@ -66,7 +61,6 @@
       pointer-events: none;
     }
 
-    /* ── DOT GRID ──────────────────────────────── */
     body::after {
       content: '';
       position: fixed; inset: 0; z-index: 0;
@@ -75,8 +69,6 @@
       pointer-events: none;
     }
 
-
-    /* ── NAV ───────────────────────────────────── */
     nav {
       position: fixed; top: 1.25rem; left: 50%;
       transform: translateX(-50%);
@@ -114,7 +106,6 @@
       color: var(--accent);
     }
 
-    /* ── BACK TO TOP ───────────────────────────── */
     .back-to-top {
       position: fixed; bottom: 2rem; right: 2rem; z-index: 300;
       width: 42px; height: 42px;
@@ -137,9 +128,6 @@
       background: rgba(249,115,22,0.25);
     }
 
-    /* ── CUSTOM CURSOR ─────────────────────────── */
-    /* Hidden by default — native cursor is kept for touch / coarse
-       pointers and for users who prefer reduced motion. */
     .c-dot, .c-ring {
       display: none;
       position: fixed; pointer-events: none;
@@ -168,7 +156,6 @@
       background: rgba(249,115,22,0.08);
     }
 
-    /* ── HERO ──────────────────────────────────── */
     .hero {
       position: relative; z-index: 1;
       min-height: 100vh;
@@ -312,7 +299,6 @@
       }
     }
 
-    /* ── SECTION BASE ──────────────────────────── */
     section {
       position: relative; z-index: 1;
       padding: 6rem 2.5rem;
@@ -358,8 +344,6 @@
       position: relative; z-index: 1;
     }
 
-
-    /* ── GLOW CARD ─────────────────────────────── */
     .glow-card {
       position: relative;
       border-radius: 14px;
@@ -391,7 +375,6 @@
       position: relative;
     }
 
-    /* ── ABOUT BENTO ───────────────────────────── */
     .about-bento {
       display: grid;
       grid-template-columns: 1.2fr 1fr;
@@ -467,8 +450,6 @@
       color: var(--text);
     }
 
-
-    /* ── FILTER BUTTONS ───────────────────────── */
     .filter-btns {
       display: flex; flex-wrap: wrap;
       justify-content: center; gap: 8px;
@@ -529,7 +510,6 @@
 
     .project-client span { color: var(--accent); font-style: normal; }
 
-    /* modal link button */
     .vm-footer {
       padding: 0.9rem 1.5rem;
       border-top: 1px solid var(--border);
@@ -554,7 +534,6 @@
       color: #fff;
     }
 
-    /* ── TABS ──────────────────────────────────── */
     .tabs {
       display: flex; justify-content: center;
       gap: 8px; margin-bottom: 2.5rem;
@@ -601,7 +580,6 @@
     }
     .tabs-wrapper { position: relative; }
 
-    /* ── PROJECTS ──────────────────────────────── */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
@@ -622,7 +600,6 @@
       box-shadow: 0 8px 32px rgba(249,115,22,0.18), 0 2px 8px rgba(0,0,0,0.4);
     }
 
-    /* ── THUMBNAIL ── */
     .project-thumb {
       width: 100%; aspect-ratio: 16/9;
       background: var(--bg2);
@@ -673,7 +650,6 @@
       color: var(--accent);
     }
 
-    /* ── EXPERIENCE ────────────────────────────── */
     .exp-list { display: flex; flex-direction: column; gap: 14px; }
 
     .exp-card {
@@ -750,7 +726,6 @@
       letter-spacing: 0.03em;
     }
 
-    /* ── EXPERIENCE: İŞ İÇİNDEKİ OYUN LİSTESİ ──── */
     .exp-games {
       margin-top: 22px;
       padding-top: 20px;
@@ -818,7 +793,6 @@
       line-height: 1.7;
     }
 
-    /* Açıklama içinde işe alımda öne çıkan teknik anahtar kelimeler */
     .kw {
       color: var(--accent);
       font-weight: 600;
@@ -837,7 +811,6 @@
       letter-spacing: 0.03em;
     }
 
-    /* ── CERT LINK (deneyim kartındaki "Bionluk Profilim" butonu) ─── */
     .cert-link {
       font-size: 12px; padding: 6px 14px;
       border: 0.5px solid var(--border);
@@ -854,7 +827,6 @@
       color: var(--accent);
     }
 
-    /* ── CONTACT ───────────────────────────────── */
     .contact-intro {
       font-size: 16px; color: var(--muted);
       max-width: 480px; line-height: 1.75;
@@ -903,7 +875,6 @@
       text-overflow: ellipsis;
     }
 
-    /* ── TOOL THUMB HOVER OVERLAY ─────────────── */
     .thumb-overlay {
       position: absolute; inset: 0;
       background: rgba(0,0,0,0.55);
@@ -937,7 +908,6 @@
       transform: scale(1.05);
     }
 
-    /* ── VIDEO MODAL ───────────────────────────── */
     .video-modal {
       position: fixed; inset: 0; z-index: 500;
       background: rgba(0,0,0,0.88);
@@ -1043,7 +1013,6 @@
       border: none; display: block;
     }
 
-    /* ── SCROLL PROGRESS ──────────────────────── */
     .scroll-progress {
       position: fixed; top: 0; left: 0; z-index: 9000;
       height: 2px; width: 0%;
@@ -1052,7 +1021,6 @@
       pointer-events: none;
     }
 
-    /* ── LANG TOGGLE ───────────────────────────── */
     .nav-right {
       display: flex; align-items: center; gap: 1rem;
     }
@@ -1083,7 +1051,6 @@
       box-shadow: inset 0 0 0 0.5px var(--accent-border);
     }
 
-    /* ── HAMBURGER ─────────────────────────────── */
     .nav-hamburger {
       display: none;
       flex-direction: column; gap: 5px;
@@ -1106,7 +1073,6 @@
       background: var(--accent);
     }
 
-    /* ── FOOTER ────────────────────────────────── */
     footer {
       position: relative; z-index: 1;
       text-align: center; padding: 2.5rem 2rem;
@@ -1136,13 +1102,11 @@
       background: var(--accent-dim);
     }
 
-    /* ── ANIMATIONS ────────────────────────────── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(16px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* ── SCROLL REVEAL ─────────────────────────── */
     .reveal {
       opacity: 0;
       transform: translateY(28px);
@@ -1157,7 +1121,6 @@
     .reveal-delay-3 { transition-delay: 0.3s; }
     .reveal-delay-4 { transition-delay: 0.4s; }
 
-    /* ── RESPONSIVE ────────────────────────────── */
     @media (max-width: 768px) {
       .nav-hamburger { display: flex; }
       .nav-links {
@@ -1193,7 +1156,6 @@
       .contact-grid { grid-template-columns: 1fr; }
     }
 
-    /* ── ACCESSIBILITY: KEYBOARD FOCUS ─────────── */
     a:focus-visible,
     button:focus-visible,
     [role="button"]:focus-visible,
@@ -1206,7 +1168,6 @@
       border-radius: 8px;
     }
 
-    /* ── ACCESSIBILITY: REDUCED MOTION ─────────── */
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       *, *::before, *::after {
@@ -1220,12 +1181,6 @@
       #typewriter::after { animation: none !important; }
     }
 
-    /* ── TİPOGRAFİ DÜZENLEMESİ ──────────────────────────────
-       Genel okunabilirlik için yazı boyutlarını burada topluca
-       artırdık. Bir şey hâlâ küçük/büyük gelirse ilgili satırdaki
-       px değerini değiştir — hepsi tek yerde. */
-
-    /* Küçük çipler / etiketler / rozetler */
     .exp-game-tag        { font-size: 12px; }
     .exp-tag             { font-size: 12.5px; }
     .exp-date,
@@ -1237,7 +1192,6 @@
     .open-to-work-badge  { font-size: 13px; }
     .lang-opt            { font-size: 13px; }
 
-    /* Üst başlık / etiket / soluk küçük metinler */
     .section-eyebrow,
     .card-eyebrow        { font-size: 14px; }
     .stat-label,
@@ -1249,7 +1203,6 @@
     .project-tech        { font-size: 13px; }
     #games-grid .project-tech { font-size: 15px; }
 
-    /* Gövde / açıklama metinleri */
     .bio-text,
     .vm-desc             { font-size: 15.5px; }
     .exp-desc,
@@ -1264,7 +1217,6 @@
     .vm-link-btn         { font-size: 15px; }
     .hero-sub            { font-size: 18px; }
 
-    /* İsimler / küçük başlıklar */
     .exp-game-name       { font-size: 16px; }
     .cert-name           { font-size: 19px; }
     .project-name        { font-size: 20px; }
@@ -1280,7 +1232,6 @@
   <i class="fa-solid fa-chevron-up"></i>
 </button>
 
-<!-- ── NAV ────────────────────────────────────── -->
 <nav>
   <a class="nav-logo" href="#home">Alihan Aydın</a>
   <ul class="nav-links" id="navLinks">
@@ -1300,8 +1251,6 @@
   </div>
 </nav>
 
-
-<!-- ── HERO ───────────────────────────────────── -->
 <div class="hero" id="home">
   <div class="hero-glow"></div>
   <div class="hero-glow2"></div>
@@ -1349,15 +1298,12 @@
   </a>
 </div>
 
-
-<!-- ── ABOUT ──────────────────────────────────── -->
 <section id="about">
   <p class="section-eyebrow reveal" data-i18n="about.eyebrow">About</p>
   <h2 class="section-title reveal reveal-delay-1" data-i18n="about.title">Who I Am</h2>
 
   <div class="about-bento">
 
-    <!-- Bio Kartı -->
     <div class="glow-card about-bio reveal">
       <div class="glow-card-inner">
         <span class="card-eyebrow" data-i18n="about.bioLabel">Bio</span>
@@ -1366,9 +1312,7 @@
            data-tr="Merhaba, ben <span>Alihan Aydın</span>. Portföyüme hoş geldin.">
           Hi, I'm <span>Alihan Aydın</span>. Welcome to my portfolio.
         </p>
-        <!--
-          ✏️ KENDİNİ TANITIM — Bu paragrafı kendin hakkında yaz.
-        -->
+
         <p class="bio-text" data-i18n="about.bio">
           I'm a game developer building with Unity and C# since 2020. Over that time I've shipped a broad range
           of games and prototypes and developed custom Unity editor tooling to streamline production. I have a strong
@@ -1382,7 +1326,6 @@
       </div>
     </div>
 
-    <!-- Skills Kartı -->
     <div class="glow-card about-skills reveal reveal-delay-1">
       <div class="glow-card-inner">
         <span class="card-eyebrow" data-i18n="about.skillsLabel">Skills</span>
@@ -1433,16 +1376,12 @@
   </div>
 </section>
 
-
 <hr class="divider">
 
-
-<!-- ── PROJECTS ────────────────────────────────── -->
 <section id="projects">
   <p class="section-eyebrow reveal" data-i18n="projects.eyebrow">Projects</p>
   <h2 class="section-title reveal reveal-delay-1" data-i18n="projects.title">What I've built</h2>
 
-  <!-- Tab Butonları -->
   <div class="tabs">
     <button class="tab-btn active" data-tab="tab-games" data-i18n="projects.tabGames">Games</button>
     <button class="tab-btn" data-tab="tab-tools" data-i18n="projects.tabTools">Unity Tools</button>
@@ -1450,7 +1389,6 @@
 
   <div class="tabs-wrapper">
 
-  <!-- ── GAMES TAB ── -->
   <div class="tab-panel active" id="tab-games">
 
     <div class="filter-btns">
@@ -1463,13 +1401,6 @@
 
     <div class="projects-grid" id="games-grid">
 
-      <!-- ═══════════════════════════════════════
-           ✏️ OYUN KARTI ŞABLONU
-           data-category: freelance | gamejam | yandes | personal
-           Resim yoksa <img> yerine <span class="project-thumb-icon">🎮</span>
-           ═══════════════════════════════════════ -->
-
-      <!-- PERSONAL -->
       <div class="project-card" data-category="personal">
         <div class="project-thumb"
              data-video="hyVZFeLVBok"
@@ -1494,7 +1425,6 @@
         </div>
       </div>
 
-      <!-- PERSONAL 2 -->
       <div class="project-card" data-category="personal">
         <div class="project-thumb">
           <img src="images/Reflex Master.png" alt="Reflex Master">
@@ -1509,7 +1439,6 @@
         </div>
       </div>
 
-      <!-- PROFESSIONAL -->
       <div class="project-card" data-category="professional">
         <div class="project-thumb" style="background:#fff;"
              data-video="-xuz6ONXkgA"
@@ -1541,7 +1470,6 @@
         </div>
       </div>
 
-      <!-- CLONE GAMES -->
       <div class="project-card" data-category="clone">
         <div class="project-thumb">
           <img src="images/Stickman Hook Clone.png" alt="Stickman Hook Clone">
@@ -1556,7 +1484,6 @@
         </div>
       </div>
 
-      <!-- CLONE 2 -->
       <div class="project-card" data-category="clone">
         <div class="project-thumb">
           <img src="images/Circle.png" alt="Circle Clone">
@@ -1571,7 +1498,6 @@
         </div>
       </div>
 
-      <!-- CLONE 3 -->
       <div class="project-card" data-category="clone">
         <div class="project-thumb">
           <img src="images/2048 Clone.png" alt="2048 Clone">
@@ -1586,7 +1512,6 @@
         </div>
       </div>
 
-      <!-- CLONE 4 -->
       <div class="project-card" data-category="clone">
         <div class="project-thumb"
              data-video="rBWA0FrZHSw"
@@ -1611,7 +1536,6 @@
         </div>
       </div>
 
-      <!-- CLONE 5 -->
       <div class="project-card" data-category="clone">
         <div class="project-thumb"
              data-video="rBWA0FrZHSw"
@@ -1636,7 +1560,6 @@
         </div>
       </div>
 
-      <!-- GAME JAM -->
       <div class="project-card" data-category="gamejam">
         <div class="project-thumb"
              data-video="-BnLmx6OpEo"
@@ -1661,7 +1584,6 @@
         </div>
       </div>
 
-      <!-- GAME JAM 2 -->
       <div class="project-card" data-category="gamejam">
         <div class="project-thumb">
           <img src="images/Ajan41.png" alt="Ajan41">
@@ -1679,13 +1601,9 @@
 
   </div>
 
-  <!-- ── UNITY TOOLS TAB ── -->
   <div class="tab-panel" id="tab-tools">
     <div class="projects-grid">
 
-      <!-- ✏️ TOOL KARTI — Her tool için bu bloğu kopyala ve doldur. -->
-
-      <!-- TOOL 1 -->
       <div class="project-card">
         <div class="project-thumb"
              data-video="eYn04t0tYYM"
@@ -1713,7 +1631,6 @@
         </div>
       </div>
 
-      <!-- TOOL 2 -->
       <div class="project-card">
         <div class="project-thumb"
              data-video="HRt1tzFvHUo"
@@ -1739,7 +1656,6 @@
         </div>
       </div>
 
-      <!-- TOOL 3 -->
       <div class="project-card">
         <div class="project-thumb"
              data-video="REmEGV4Dqxo"
@@ -1768,7 +1684,7 @@
     </div>
   </div>
 
-  </div> <!-- /tabs-wrapper -->
+  </div>
 
   <div style="text-align:center; margin-top: 32px;">
     <a class="btn btn-outline" href="https://github.com/Alihan-4108" target="_blank">
@@ -1778,21 +1694,13 @@
 
 </section>
 
-
 <hr class="divider">
 
-
-<!-- ── EXPERIENCE ──────────────────────────────── -->
 <section id="experience">
   <p class="section-eyebrow reveal" data-i18n="exp.eyebrow">Experience</p>
   <h2 class="section-title reveal reveal-delay-1" data-i18n="exp.title">My journey</h2>
 
   <div class="exp-list">
-
-    <!--
-      ✏️ DENEYİM KARTI — Her iş için bu bloğu kopyala ve doldur.
-      Birden fazla deneyim varsa bloğu kopyalayıp ekle.
-    -->
 
     <div class="exp-card">
       <div class="exp-header">
@@ -1870,16 +1778,9 @@
         Delivered mobile games, editor tools, and gameplay prototypes end-to-end.
       </p>
 
-      <!--
-        ✏️ BU İŞTE YAPTIĞIN OYUNLAR — Her oyun için aşağıdaki .exp-game bloğunu
-           KOPYALA, ismi ve açıklamayı doldur. Açıklamada iki dil de tek yerde:
-             data-en="İngilizce açıklama"  data-tr="Türkçe açıklama"
-           (İsmi çevirmek istersen .exp-game-name'e de data-en / data-tr ekleyebilirsin.)
-      -->
       <div class="exp-games">
         <p class="exp-games-title" data-en="Games I built" data-tr="Geliştirdiğim oyunlar">Geliştirdiğim oyunlar</p>
 
-        <!-- ▼▼▼ OYUN BLOĞU — kopyalanabilir şablon ▼▼▼ -->
         <div class="exp-game">
           <div class="exp-game-head">
             <p class="exp-game-name">Poor Thief</p>
@@ -1897,7 +1798,6 @@
             <span class="exp-game-tag">C#</span>
           </div>
         </div>
-        <!-- ▲▲▲ OYUN BLOĞU SONU ▲▲▲ -->
 
         <div class="exp-game">
           <div class="exp-game-head">
@@ -1935,23 +1835,6 @@
           </div>
         </div>
 
-        <!-- ▼ YENİ OYUN İÇİN: yukarıdaki bloğu buraya kopyala ▼ -->
-        <!--
-        <div class="exp-game">
-          <p class="exp-game-name">Oyun Adı</p>
-          <p class="exp-game-desc"
-             data-en="Short description in English."
-             data-tr="Türkçe kısa açıklama.">
-            Türkçe kısa açıklama.
-          </p>
-          <div class="exp-game-tags">
-            <span class="exp-game-tag">NavMesh AI</span>
-            <span class="exp-game-tag">Object Pooling</span>
-            <span class="exp-game-tag">Unity</span>
-          </div>
-        </div>
-        -->
-
       </div>
 
       <div style="display: flex; justify-content: flex-end; margin-top: 18px;">
@@ -1964,21 +1847,13 @@
   </div>
 </section>
 
-
 <hr class="divider">
 
-
-<!-- ── CONTACT ─────────────────────────────────── -->
 <section id="contact">
   <p class="section-eyebrow reveal" data-i18n="contact.eyebrow">Contact</p>
   <h2 class="section-title reveal reveal-delay-1" data-i18n="contact.title">Get in touch</h2>
 
   <div class="contact-grid">
-
-    <!--
-      ✏️ KONTAKTLARINı GİR — href ve contact-val kısımlarını güncelle.
-      İstemediğin kartı tamamen sil.
-    -->
 
     <a class="contact-card" href="mailto:mehmetalihanaydin0841@gmail.com">
       <i class="fa-regular fa-envelope contact-icon"></i>
@@ -2014,11 +1889,8 @@
 
   </div>
 
-
 </section>
 
-
-<!-- ── VIDEO MODAL ─────────────────────────────── -->
 <div class="video-modal" id="videoModal">
   <div class="vm-box">
 
@@ -2053,7 +1925,6 @@
   </div>
 </div>
 
-<!-- ── FOOTER ──────────────────────────────────── -->
 <footer>
   <div class="footer-inner">
     <div class="footer-social">
@@ -2066,10 +1937,8 @@
   </div>
 </footer>
 
-
 <script>
 
-  // ── i18n / TRANSLATIONS ─────────────────────
   const translations = {
     en: {
       'nav.about': 'About',
@@ -2197,8 +2066,6 @@
       const val = translations[lang][el.getAttribute('data-i18n')];
       if (typeof val === 'string') el.textContent = val;
     });
-    // Satır içi çift dilli metinler (örn. deneyim oyun listesi): data-en / data-tr
-    // data-html taşıyan elemanlarda anahtar kelime vurgusu için innerHTML kullanılır.
     document.querySelectorAll('[data-en], [data-tr]').forEach(el => {
       const val = el.getAttribute('data-' + lang) || el.getAttribute('data-en') || el.getAttribute('data-tr');
       if (typeof val === 'string') {
@@ -2213,7 +2080,6 @@
     restartTypewriter();
   }
 
-  // Typewriter
   const twEl = document.getElementById('typewriter');
   let twWords = ['Game Developer', 'Unity Developer'];
   let twWord = 0, twChar = 0, twDeleting = false;
@@ -2248,14 +2114,12 @@
     twType();
   }
 
-  // Language init: always start in English (no auto-detection)
   applyLang('en');
 
   document.querySelectorAll('.lang-opt').forEach(btn => {
     btn.addEventListener('click', () => applyLang(btn.dataset.lang));
   });
 
-  // Tab switching
   document.querySelectorAll('.tab-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const target = document.getElementById(btn.dataset.tab);
@@ -2267,7 +2131,6 @@
     });
   });
 
-  // Game filter
   document.querySelectorAll('.filter-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -2292,7 +2155,6 @@
     });
   });
 
-  // Video modal
   const modal      = document.getElementById('videoModal');
   const modalFrame = document.getElementById('videoModalFrame');
   const modalClose = document.getElementById('videoModalClose');
@@ -2346,8 +2208,6 @@
       vmFooter.style.display = 'none';
     }
     var embedSrc = 'https://www.youtube-nocookie.com/embed/' + thumb.dataset.video + '?autoplay=1&rel=0';
-    // origin parametresi yalnızca gerçek bir http(s) adresinde geçerlidir.
-    // Dosya doğrudan açıldığında (file://) location.origin "null" olur ve YouTube Hata 153 verir.
     if (location.origin && location.origin !== 'null' && /^https?:/.test(location.origin)) {
       embedSrc += '&origin=' + encodeURIComponent(location.origin);
     }
@@ -2376,7 +2236,6 @@
     if (e.key === 'Escape') closeModal();
   });
 
-  // Active nav link
   const navLinks = document.querySelectorAll('.nav-links a');
   const sections = document.querySelectorAll('section[id], div[id="home"]');
   const navObserver = new IntersectionObserver((entries) => {
@@ -2390,14 +2249,12 @@
   }, { threshold: 0.35 });
   sections.forEach(s => navObserver.observe(s));
 
-  // Back to top
   const backToTop = document.getElementById('backToTop');
   window.addEventListener('scroll', () => {
     backToTop.classList.toggle('visible', window.scrollY > 400);
   });
   backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-  // Custom cursor
   const cDot  = document.getElementById('cDot');
   const cRing = document.getElementById('cRing');
   let mouseX = 0, mouseY = 0;
@@ -2423,14 +2280,12 @@
     el.addEventListener('mouseleave', () => cRing.classList.remove('hovered'));
   });
 
-  // Scroll progress bar
   const scrollProgress = document.getElementById('scrollProgress');
   window.addEventListener('scroll', () => {
     const total = document.documentElement.scrollHeight - window.innerHeight;
     scrollProgress.style.width = (window.scrollY / total * 100) + '%';
   }, { passive: true });
 
-  // Hamburger menu
   const hamburger = document.getElementById('navHamburger');
   const navLinksList = document.getElementById('navLinks');
   hamburger.addEventListener('click', () => {
@@ -2444,7 +2299,6 @@
     });
   });
 
-  // Scroll reveal
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -2455,7 +2309,6 @@
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-  // Stats counter
   function animateCounter(el) {
     const target = parseInt(el.dataset.target);
     const suffix = el.dataset.suffix || '';
