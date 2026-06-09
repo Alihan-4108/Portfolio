@@ -540,27 +540,63 @@
     }
 
     .tab-btn {
+      position: relative;
+      display: inline-flex; align-items: center; gap: 10px;
       font-family: 'Rajdhani', sans-serif;
       font-size: 17px; font-weight: 600;
       letter-spacing: 0.1em; text-transform: uppercase;
-      padding: 13px 42px;
+      padding: 13px 30px;
       border-radius: 12px;
-      border: 1px solid var(--border);
-      background: transparent;
-      color: var(--muted);
+      border: 1px solid var(--accent-border);
+      background: rgba(255,255,255,0.02);
+      color: var(--text);
       cursor: pointer;
       transition: all 0.2s;
     }
 
+    .tab-btn .tab-ico {
+      font-size: 15px;
+      color: var(--accent);
+      opacity: 0.85;
+    }
+
+    .tab-btn .tab-count {
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.02em;
+      min-width: 22px; padding: 2px 7px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      color: var(--muted);
+      transition: all 0.2s;
+    }
+
     .tab-btn:hover {
-      border-color: var(--accent-border);
+      border-color: var(--accent);
       color: var(--text);
+      transform: translateY(-1px);
     }
 
     .tab-btn.active {
       background: var(--accent-dim);
       border-color: var(--accent-border);
       color: var(--accent);
+    }
+    .tab-btn.active .tab-ico { opacity: 1; }
+    .tab-btn.active .tab-count {
+      background: var(--accent);
+      color: #1a0e00;
+    }
+
+    /* Draws the eye to the non-default tab until the user interacts */
+    @keyframes tabPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(249,115,22,0.0); border-color: var(--accent-border); }
+      50%      { box-shadow: 0 0 0 5px rgba(249,115,22,0.16); border-color: var(--accent); }
+    }
+    .tab-btn.tab-attention:not(.active) {
+      animation: tabPulse 2s ease-in-out 4;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .tab-btn.tab-attention:not(.active) { animation: none; }
     }
 
     .tab-panel {
@@ -610,6 +646,37 @@
     .project-thumb-icon {
       font-size: 3.5rem;
       opacity: 0.18;
+    }
+
+    .badge-new {
+      position: absolute;
+      top: 12px; left: 12px;
+      z-index: 3;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 4px 11px;
+      border-radius: 999px;
+      color: #1a0e00;
+      background: var(--accent);
+      box-shadow: 0 2px 10px rgba(249,115,22,0.45);
+      transform-origin: center;
+      animation: badgeBreathe 2.4s ease-in-out infinite;
+    }
+    @keyframes badgeBreathe {
+      0%, 100% { transform: scale(1);    box-shadow: 0 2px 10px rgba(249,115,22,0.35); }
+      50%      { transform: scale(1.12); box-shadow: 0 2px 18px rgba(249,115,22,0.75); }
+    }
+
+    /* NEW pill that floats on the corner of the Unity Tools tab */
+    .tab-new {
+      top: -9px; left: auto; right: -10px;
+      font-size: 10px; padding: 3px 8px;
+      letter-spacing: 0.1em;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .badge-new { animation: none; }
     }
 
     .project-thumb img {
@@ -1383,8 +1450,17 @@
   <h2 class="section-title reveal reveal-delay-1" data-i18n="projects.title">What I've built</h2>
 
   <div class="tabs">
-    <button class="tab-btn active" data-tab="tab-games" data-i18n="projects.tabGames">Games</button>
-    <button class="tab-btn" data-tab="tab-tools" data-i18n="projects.tabTools">Unity Tools</button>
+    <button class="tab-btn active" data-tab="tab-games">
+      <i class="fa-solid fa-gamepad tab-ico" aria-hidden="true"></i>
+      <span class="tab-label" data-i18n="projects.tabGames">Games</span>
+      <span class="tab-count" data-count-for="tab-games"></span>
+    </button>
+    <button class="tab-btn tab-attention" data-tab="tab-tools" data-new-until="2026-06-23">
+      <i class="fa-solid fa-screwdriver-wrench tab-ico" aria-hidden="true"></i>
+      <span class="tab-label" data-i18n="projects.tabTools">Unity Tools</span>
+      <span class="tab-count" data-count-for="tab-tools"></span>
+      <span class="badge-new tab-new" data-i18n="projects.badgeNew">NEW</span>
+    </button>
   </div>
 
   <div class="tabs-wrapper">
@@ -1604,6 +1680,34 @@
   <div class="tab-panel" id="tab-tools">
     <div class="projects-grid">
 
+      <div class="project-card" data-new-until="2026-06-23">
+        <div class="project-thumb"
+             data-video="WD79kHazCl4"
+             data-name="Scene Switcher Bar"
+             data-tech="Unity Editor · C#"
+             data-desc="A lightweight Unity editor extension that adds quick scene-switch buttons to the main editor toolbar. You decide exactly which scenes show up, so the toolbar stays clean no matter how many scenes your project has."
+             data-desc-tr="Ana editör araç çubuğuna hızlı sahne değiştirme butonları ekleyen, hafif bir Unity editör eklentisi. Hangi sahnelerin görüneceğine tam olarak siz karar verirsiniz; böylece projenizde kaç sahne olursa olsun araç çubuğu temiz kalır."
+             data-github="https://github.com/Alihan-4108/Scene-Switcher-Bar"
+             data-link="https://github.com/Alihan-4108/Scene-Switcher-Bar"
+             data-link-label="GitHub">
+          <span class="badge-new" data-i18n="projects.badgeNew">NEW</span>
+          <img loading="lazy" decoding="async" width="640" height="360" src="images/scene switch.png" alt="Scene Switcher Bar">
+          <div class="thumb-overlay">
+            <button class="btn-details" data-i18n="projects.details">Details</button>
+          </div>
+        </div>
+        <div class="project-body">
+          <p class="project-name">Scene Switcher Bar</p>
+          <p class="project-tech">Unity Editor · C#</p>
+          <p class="project-desc" data-i18n="proj.sceneSwitcher.desc">
+            A lightweight Unity editor extension that adds quick scene-switch buttons to the main editor toolbar. You decide exactly which scenes show up, so the toolbar stays clean no matter how many scenes your project has.
+          </p>
+          <div class="project-links">
+            <a class="project-link" href="https://github.com/Alihan-4108/Scene-Switcher-Bar" target="_blank">GitHub</a>
+          </div>
+        </div>
+      </div>
+
       <div class="project-card">
         <div class="project-thumb"
              data-video="eYn04t0tYYM"
@@ -1638,7 +1742,9 @@
              data-tech="Unity Editor · C#"
              data-desc="WorldLayoutGroup is a lightweight, editor-only layout component for Unity. Automatically arranges child GameObjects in the scene, similar to UI LayoutGroup but designed for world objects."
              data-desc-tr="WorldLayoutGroup, Unity için hafif, yalnızca editörde çalışan bir yerleşim bileşenidir. Çocuk GameObject'leri sahnede otomatik olarak hizalar; UI LayoutGroup'a benzer ancak dünya nesneleri için tasarlanmıştır."
-             data-github="https://github.com/Alihan-4108/World-Layout-Group">
+             data-github="https://github.com/Alihan-4108/World-Layout-Group"
+             data-link="https://github.com/Alihan-4108/World-Layout-Group"
+             data-link-label="GitHub">
           <img loading="lazy" decoding="async" width="640" height="360" src="images/World Layout Group.png" alt="World Layout Group">
           <div class="thumb-overlay">
             <button class="btn-details" data-i18n="projects.details">Details</button>
@@ -1663,7 +1769,9 @@
              data-tech="Unity Editor · C#"
              data-desc="Sprite Slicer is an Editor tool developed for Unity. Automatically slices one or more sprites of the same width and height."
              data-desc-tr="Sprite Slicer, Unity için geliştirilmiş bir editör aracıdır. Aynı genişlik ve yükseklikteki bir veya daha fazla sprite'ı otomatik olarak dilimler."
-             data-github="https://github.com/Alihan-4108/Sprite-Slicer-Editor">
+             data-github="https://github.com/Alihan-4108/Sprite-Slicer-Editor"
+             data-link="https://github.com/Alihan-4108/Sprite-Slicer-Editor"
+             data-link-label="GitHub">
           <img loading="lazy" decoding="async" width="640" height="360" src="images/Sprite Slicer Editor.png" alt="Sprite Slicer Editor" style="object-position: center 30%;">
           <div class="thumb-overlay">
             <button class="btn-details" data-i18n="projects.details">Details</button>
@@ -1963,6 +2071,7 @@
       'projects.title': "What I've built",
       'projects.tabGames': 'Games',
       'projects.tabTools': 'Unity Tools',
+      'projects.badgeNew': 'NEW',
       'projects.filterAll': 'All',
       'projects.filterPersonal': 'Personal',
       'projects.filterProfessional': 'Professional',
@@ -1984,6 +2093,7 @@
       'proj.serializer.desc': 'Working with ScriptableObjects often requires constantly opening assets just to tweak values. This tool removes that friction.',
       'proj.worldLayout.desc': "WorldLayoutGroup is a lightweight, editor-only layout component for Unity. It automatically arranges child GameObjects in the scene, similar to Unity's UI LayoutGroup, but designed for world (non-UI) objects.",
       'proj.spriteSlicer.desc': 'Sprite Slicer is an Editor tool developed for Unity. Automatically slices one or more sprites of the same width and height.',
+      'proj.sceneSwitcher.desc': 'A lightweight Unity editor extension that adds quick scene-switch buttons to the main editor toolbar. You decide exactly which scenes show up, so the toolbar stays clean no matter how many scenes your project has.',
       'exp.eyebrow': 'Experience',
       'exp.title': 'My journey',
       'exp.role1': 'Unity Game Developer',
@@ -2020,6 +2130,7 @@
       'projects.title': 'Geliştirdiklerim',
       'projects.tabGames': 'Oyunlar',
       'projects.tabTools': 'Unity Araçları',
+      'projects.badgeNew': 'YENİ',
       'projects.filterAll': 'Tümü',
       'projects.filterPersonal': 'Kişisel',
       'projects.filterProfessional': 'Profesyonel',
@@ -2041,6 +2152,7 @@
       'proj.serializer.desc': "ScriptableObject'lerle çalışmak, sadece değerleri değiştirmek için sürekli asset açmayı gerektirir. Bu araç o zahmeti ortadan kaldırır.",
       'proj.worldLayout.desc': "WorldLayoutGroup, Unity için hafif, yalnızca editörde çalışan bir yerleşim bileşenidir. Çocuk GameObject'leri sahnede otomatik olarak hizalar; Unity'nin UI LayoutGroup'una benzer ancak dünya (UI olmayan) nesneleri için tasarlanmıştır.",
       'proj.spriteSlicer.desc': 'Sprite Slicer, Unity için geliştirilmiş bir editör aracıdır. Aynı genişlik ve yükseklikteki bir veya daha fazla sprite’ı otomatik olarak dilimler.',
+      'proj.sceneSwitcher.desc': 'Ana editör araç çubuğuna hızlı sahne değiştirme butonları ekleyen, hafif bir Unity editör eklentisi. Hangi sahnelerin görüneceğine tam olarak siz karar verirsiniz; böylece projenizde kaç sahne olursa olsun araç çubuğu temiz kalır.',
       'exp.eyebrow': 'Deneyim',
       'exp.title': 'Yolculuğum',
       'exp.role1': 'Unity Oyun Geliştirici',
@@ -2120,8 +2232,26 @@
     btn.addEventListener('click', () => applyLang(btn.dataset.lang));
   });
 
+  // "NEW" badges auto-expire on their data-new-until date (no manual cleanup)
+  document.querySelectorAll('[data-new-until]').forEach(host => {
+    const until = new Date(host.dataset.newUntil + 'T23:59:59');
+    if (isNaN(until) || Date.now() > until.getTime()) {
+      host.querySelectorAll('.badge-new').forEach(badge => badge.remove());
+      host.classList.remove('tab-attention');
+    }
+  });
+
+  // Show how many projects live behind each tab
+  document.querySelectorAll('.tab-count').forEach(badge => {
+    const panel = document.getElementById(badge.dataset.countFor);
+    if (panel) badge.textContent = panel.querySelectorAll('.project-card').length;
+  });
+
   document.querySelectorAll('.tab-btn').forEach(btn => {
     btn.addEventListener('click', () => {
+      // First interaction with the tabs cancels the attention pulse for good
+      document.querySelectorAll('.tab-btn.tab-attention')
+        .forEach(b => b.classList.remove('tab-attention'));
       const target = document.getElementById(btn.dataset.tab);
       if (target.classList.contains('active')) return;
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
