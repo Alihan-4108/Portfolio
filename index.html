@@ -179,27 +179,6 @@
       pointer-events: none;
     }
 
-    .open-to-work-badge {
-      display: inline-flex; align-items: center; gap: 7px;
-      padding: 5px 14px;
-      border-radius: 999px;
-      font-size: 12px; font-weight: 600;
-      letter-spacing: 0.06em;
-      background: rgba(34,197,94,0.12);
-      border: 1px solid rgba(34,197,94,0.35);
-      color: #4ade80;
-    }
-    .otw-dot {
-      width: 7px; height: 7px;
-      border-radius: 50%;
-      background: #22c55e;
-      animation: pulse-green 2s ease-in-out infinite;
-    }
-    @keyframes pulse-green {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.5); }
-      50%       { box-shadow: 0 0 0 5px rgba(34,197,94,0); }
-    }
-
     .hero-tag {
       font-size: 11px; font-weight: 500;
       letter-spacing: 0.18em; text-transform: uppercase;
@@ -383,12 +362,6 @@
 
     .about-bio { grid-column: 1 / -1; }
 
-    .stat-card .glow-card-inner {
-      display: flex; flex-direction: column;
-      justify-content: center;
-      min-height: 160px;
-    }
-
     .about-skills { grid-column: 1 / -1; }
 
     .bio-welcome {
@@ -403,20 +376,6 @@
     .bio-text {
       font-size: 15px; color: var(--muted);
       line-height: 1.9; margin-top: 0.85rem;
-    }
-
-    .stat-number {
-      display: block;
-      font-family: 'Rajdhani', sans-serif;
-      font-size: 4.5rem; font-weight: 700;
-      color: var(--accent); line-height: 1;
-    }
-
-    .stat-label {
-      display: block;
-      font-size: 12px; color: var(--dimmed);
-      letter-spacing: 0.1em; text-transform: uppercase;
-      margin-top: 10px;
     }
 
     .card-eyebrow {
@@ -1244,7 +1203,6 @@
       }
       .reveal { opacity: 1 !important; transform: none !important; }
       .scroll-arrow,
-      .otw-dot,
       #typewriter::after { animation: none !important; }
     }
 
@@ -1256,12 +1214,10 @@
     .cert-link           { font-size: 13px; }
     .vm-type-badge       { font-size: 12.5px; }
     .hero-tag            { font-size: 12.5px; }
-    .open-to-work-badge  { font-size: 13px; }
     .lang-opt            { font-size: 13px; }
 
     .section-eyebrow,
     .card-eyebrow        { font-size: 14px; }
-    .stat-label,
     .skill-group-label,
     .contact-label       { font-size: 13px; }
     .filter-btn          { font-size: 14px; }
@@ -1338,17 +1294,17 @@
   </div>
 
   <div style="display:flex; gap:16px; margin-top:2rem; opacity:0; animation:fadeUp 0.7s 0.55s forwards;">
-    <a href="https://www.linkedin.com/in/mehmet-alihan-ayd%C4%B1n-bbb9b5280/" target="_blank"
+    <a href="https://www.linkedin.com/in/mehmet-alihan-ayd%C4%B1n-bbb9b5280/" target="_blank" rel="noopener"
        style="color:var(--dimmed); font-size:20px; text-decoration:none; transition:color 0.2s;"
        onmouseenter="this.style.color='var(--accent)'" onmouseleave="this.style.color='var(--dimmed)'">
       <i class="fa-brands fa-linkedin"></i>
     </a>
-    <a href="https://github.com/Alihan-4108" target="_blank"
+    <a href="https://github.com/Alihan-4108" target="_blank" rel="noopener"
        style="color:var(--dimmed); font-size:20px; text-decoration:none; transition:color 0.2s;"
        onmouseenter="this.style.color='var(--accent)'" onmouseleave="this.style.color='var(--dimmed)'">
       <i class="fa-brands fa-github"></i>
     </a>
-    <a href="https://mehmet-alihan-aydin.itch.io/" target="_blank"
+    <a href="https://mehmet-alihan-aydin.itch.io/" target="_blank" rel="noopener"
        style="color:var(--dimmed); font-size:20px; text-decoration:none; transition:color 0.2s;"
        onmouseenter="this.style.color='var(--accent)'" onmouseleave="this.style.color='var(--dimmed)'">
       <i class="fa-brands fa-itch-io"></i>
@@ -1496,7 +1452,7 @@
           <p class="project-tech">Unity · C# · WebGL</p>
           <p class="project-desc" data-i18n="proj.pixelFall.desc">Avoid airplanes and birds. Collect gold coins. With this gold you can buy new characters on the market.</p>
           <div class="project-links">
-            <a class="project-link" href="https://mehmet-alihan-aydin.itch.io/pixel-fall" target="_blank">itch.io</a>
+            <a class="project-link" href="https://mehmet-alihan-aydin.itch.io/pixel-fall" target="_blank" rel="noopener">itch.io</a>
           </div>
         </div>
       </div>
@@ -1510,7 +1466,7 @@
           <p class="project-tech">Unity · C# · WebGL</p>
           <p class="project-desc" data-i18n="proj.reflex.desc">Press the arrow directions as fast as possible before time runs out and test your reflexes.</p>
           <div class="project-links">
-            <a class="project-link" href="https://mehmet-alihan-aydin.itch.io/reflex-master" target="_blank">itch.io</a>
+            <a class="project-link" href="https://mehmet-alihan-aydin.itch.io/reflex-master" target="_blank" rel="noopener">itch.io</a>
           </div>
         </div>
       </div>
@@ -1541,7 +1497,7 @@
           </div>
           <p class="project-desc" data-i18n="proj.paintFutbol.desc">Pick your teams and let the simulation do the rest! Download now to join in the excitement right up to the final whistle. Whether you want to create your own league or have fun with prediction competitions with your friends!</p>
           <div class="project-links">
-            <a class="project-link" href="https://play.google.com/store/apps/details?id=com.GoalUp.PaintFutbol&hl=tr" target="_blank">Google Play</a>
+            <a class="project-link" href="https://play.google.com/store/apps/details?id=com.GoalUp.PaintFutbol&hl=tr" target="_blank" rel="noopener">Google Play</a>
           </div>
         </div>
       </div>
@@ -1555,7 +1511,7 @@
           <p class="project-tech">Unity · C# · WebGL</p>
           <p class="project-desc" data-i18n="proj.stickman.desc">A prototype in which I have cloned the mechanics of the game 'Stickman Hook'.</p>
           <div class="project-links">
-            <a class="project-link" href="https://mehmet-alihan-aydin.itch.io/stickman-hook-clone" target="_blank">itch.io</a>
+            <a class="project-link" href="https://mehmet-alihan-aydin.itch.io/stickman-hook-clone" target="_blank" rel="noopener">itch.io</a>
           </div>
         </div>
       </div>
@@ -1569,7 +1525,7 @@
           <p class="project-tech">Unity · C# · WebGL</p>
           <p class="project-desc" data-i18n="proj.circle.desc">A prototype recreating the core mechanics of 'Circle'.</p>
           <div class="project-links">
-            <a class="project-link" href="https://mehmet-alihan-aydin.itch.io/circle-clone" target="_blank">itch.io</a>
+            <a class="project-link" href="https://mehmet-alihan-aydin.itch.io/circle-clone" target="_blank" rel="noopener">itch.io</a>
           </div>
         </div>
       </div>
@@ -1583,7 +1539,7 @@
           <p class="project-tech">Unity · C# · WebGL</p>
           <p class="project-desc" data-i18n="proj.2048.desc">A prototype recreating the core mechanics of '2048'.</p>
           <div class="project-links">
-            <a class="project-link" href="https://github.com/Alihan-4108/2048-Clone" target="_blank">GitHub</a>
+            <a class="project-link" href="https://github.com/Alihan-4108/2048-Clone" target="_blank" rel="noopener">GitHub</a>
           </div>
         </div>
       </div>
@@ -1607,14 +1563,14 @@
           <p class="project-tech">Unity · C#</p>
           <p class="project-desc" data-i18n="proj.crowdRunner.desc">A prototype recreating the core mechanics of 'Crowd Runner'.</p>
           <div class="project-links">
-            <a class="project-link" href="https://github.com/Alihan-4108/Crowd-Runner-Clone" target="_blank">GitHub</a>
+            <a class="project-link" href="https://github.com/Alihan-4108/Crowd-Runner-Clone" target="_blank" rel="noopener">GitHub</a>
           </div>
         </div>
       </div>
 
       <div class="project-card" data-category="clone">
         <div class="project-thumb"
-             data-video="rBWA0FrZHSw"
+             data-video="-yX-Pcy_los"
              data-name="Jhoony Trigger Clone"
              data-tech="Unity · C#"
              data-desc="A prototype recreating the core mechanics of 'Jhoony Trigger'."
@@ -1631,7 +1587,7 @@
           <p class="project-tech">Unity · C#</p>
           <p class="project-desc" data-i18n="proj.jhoony.desc">A prototype recreating the core mechanics of 'Jhoony Trigger'.</p>
           <div class="project-links">
-            <a class="project-link" href="https://github.com/Alihan-4108/JhoonyTriggerClone" target="_blank">GitHub</a>
+            <a class="project-link" href="https://github.com/Alihan-4108/JhoonyTriggerClone" target="_blank" rel="noopener">GitHub</a>
           </div>
         </div>
       </div>
@@ -1655,7 +1611,7 @@
           <p class="project-tech">Unity · C#</p>
           <p class="project-desc" data-i18n="proj.finalGlow.desc">Just when all hope of survival has faded, things take a turn with the crescent moon, which offers us one last glimmer of hope. Or are we so utterly spent that even the crescent moon cannot help us?</p>
           <div class="project-links">
-            <a class="project-link" href="https://mehmet-alihan-aydin.itch.io/the-final-glow" target="_blank">itch.io</a>
+            <a class="project-link" href="https://mehmet-alihan-aydin.itch.io/the-final-glow" target="_blank" rel="noopener">itch.io</a>
           </div>
         </div>
       </div>
@@ -1668,7 +1624,7 @@
           <p class="project-name">Ajan41</p>
           <p class="project-tech">Unity · C#</p>
           <div class="project-links">
-            <a class="project-link" href="https://mehmet-alihan-aydin.itch.io/ajan41" target="_blank">itch.io</a>
+            <a class="project-link" href="https://mehmet-alihan-aydin.itch.io/ajan41" target="_blank" rel="noopener">itch.io</a>
           </div>
         </div>
       </div>
@@ -1703,7 +1659,7 @@
             A lightweight Unity editor extension that adds quick scene-switch buttons to the main editor toolbar. You decide exactly which scenes show up, so the toolbar stays clean no matter how many scenes your project has.
           </p>
           <div class="project-links">
-            <a class="project-link" href="https://github.com/Alihan-4108/Scene-Switcher-Bar" target="_blank">GitHub</a>
+            <a class="project-link" href="https://github.com/Alihan-4108/Scene-Switcher-Bar" target="_blank" rel="noopener">GitHub</a>
           </div>
         </div>
       </div>
@@ -1730,7 +1686,7 @@
             Working with ScriptableObjects often requires constantly opening assets just to tweak values. This tool removes that friction.
           </p>
           <div class="project-links">
-            <a class="project-link" href="https://github.com/Alihan-4108/Serializer-ScriptableObject" target="_blank">GitHub</a>
+            <a class="project-link" href="https://github.com/Alihan-4108/Serializer-ScriptableObject" target="_blank" rel="noopener">GitHub</a>
           </div>
         </div>
       </div>
@@ -1757,7 +1713,7 @@
             WorldLayoutGroup is a lightweight, editor-only layout component for Unity. It automatically arranges child GameObjects in the scene, similar to Unity's UI LayoutGroup, but designed for world (non-UI) objects.
           </p>
           <div class="project-links">
-            <a class="project-link" href="https://github.com/Alihan-4108/World-Layout-Group" target="_blank">GitHub</a>
+            <a class="project-link" href="https://github.com/Alihan-4108/World-Layout-Group" target="_blank" rel="noopener">GitHub</a>
           </div>
         </div>
       </div>
@@ -1784,7 +1740,7 @@
             Sprite Slicer is an Editor tool developed for Unity. Automatically slices one or more sprites of the same width and height.
           </p>
           <div class="project-links">
-            <a class="project-link" href="https://github.com/Alihan-4108/Sprite-Slicer-Editor" target="_blank">GitHub</a>
+            <a class="project-link" href="https://github.com/Alihan-4108/Sprite-Slicer-Editor" target="_blank" rel="noopener">GitHub</a>
           </div>
         </div>
       </div>
@@ -1795,7 +1751,7 @@
   </div>
 
   <div style="text-align:center; margin-top: 32px;">
-    <a class="btn btn-outline" href="https://github.com/Alihan-4108" target="_blank">
+    <a class="btn btn-outline" href="https://github.com/Alihan-4108" target="_blank" rel="noopener">
       <i class="fa-brands fa-github" style="margin-right: 8px;"></i><span data-i18n="projects.moreGithub">More Projects on GitHub</span>
     </a>
   </div>
@@ -1813,7 +1769,7 @@
     <div class="exp-card">
       <div class="exp-header">
         <div>
-          <p class="exp-company"><a href="https://www.linkedin.com/company/chronokrit/" target="_blank" style="color:inherit; text-decoration:underline; text-decoration-color:rgba(249,115,22,0.4); text-underline-offset:4px; transition:opacity 0.2s; opacity:0.85;" onmouseenter="this.style.opacity='1'" onmouseleave="this.style.opacity='0.85'">ChronoKrit</a></p>
+          <p class="exp-company"><a href="https://www.linkedin.com/company/chronokrit/" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline; text-decoration-color:rgba(249,115,22,0.4); text-underline-offset:4px; transition:opacity 0.2s; opacity:0.85;" onmouseenter="this.style.opacity='1'" onmouseleave="this.style.opacity='0.85'">ChronoKrit</a></p>
           <p class="exp-role" data-i18n="exp.role1">Unity Game Developer</p>
         </div>
         <span class="exp-date" data-i18n="exp.date1">Jan 2026 – Present</span>
@@ -1946,7 +1902,7 @@
       </div>
 
       <div style="display: flex; justify-content: flex-end; margin-top: 18px;">
-        <a class="cert-link" href="https://bionluk.com/mehmetalihan08" target="_blank">
+        <a class="cert-link" href="https://bionluk.com/mehmetalihan08" target="_blank" rel="noopener">
           <i class="fa-solid fa-arrow-up-right-from-square"></i> <span data-i18n="exp.bionlukProfile">Bionluk Profilim</span>
         </a>
       </div>
@@ -1971,7 +1927,7 @@
       </div>
     </a>
 
-    <a class="contact-card" href="https://www.linkedin.com/in/mehmet-alihan-ayd%C4%B1n-bbb9b5280/?locale=tr" target="_blank">
+    <a class="contact-card" href="https://www.linkedin.com/in/mehmet-alihan-ayd%C4%B1n-bbb9b5280/?locale=tr" target="_blank" rel="noopener">
       <i class="fa-brands fa-linkedin contact-icon"></i>
       <div class="contact-text">
         <p class="contact-label">LinkedIn</p>
@@ -1979,7 +1935,7 @@
       </div>
     </a>
 
-    <a class="contact-card" href="https://github.com/Alihan-4108" target="_blank">
+    <a class="contact-card" href="https://github.com/Alihan-4108" target="_blank" rel="noopener">
       <i class="fa-brands fa-github contact-icon"></i>
       <div class="contact-text">
         <p class="contact-label">GitHub</p>
@@ -1987,7 +1943,7 @@
       </div>
     </a>
 
-    <a class="contact-card" href="https://mehmet-alihan-aydin.itch.io/" target="_blank">
+    <a class="contact-card" href="https://mehmet-alihan-aydin.itch.io/" target="_blank" rel="noopener">
       <i class="fa-brands fa-itch-io contact-icon"></i>
       <div class="contact-text">
         <p class="contact-label">Itch.io</p>
@@ -2024,7 +1980,7 @@
     </div>
 
     <div class="vm-footer" id="vmFooter" style="display:none;">
-      <a class="vm-link-btn" id="vmLinkBtn" href="#" target="_blank">
+      <a class="vm-link-btn" id="vmLinkBtn" href="#" target="_blank" rel="noopener">
         <i class="fa-solid fa-arrow-up-right-from-square"></i>
         <span id="vmLinkLabel"></span>
       </a>
@@ -2036,9 +1992,9 @@
 <footer>
   <div class="footer-inner">
     <div class="footer-social">
-      <a href="https://www.linkedin.com/in/mehmet-alihan-ayd%C4%B1n-bbb9b5280/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-      <a href="https://github.com/Alihan-4108" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-      <a href="https://mehmet-alihan-aydin.itch.io/" target="_blank" aria-label="itch.io"><i class="fa-brands fa-itch-io"></i></a>
+      <a href="https://www.linkedin.com/in/mehmet-alihan-ayd%C4%B1n-bbb9b5280/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+      <a href="https://github.com/Alihan-4108" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+      <a href="https://mehmet-alihan-aydin.itch.io/" target="_blank" rel="noopener" aria-label="itch.io"><i class="fa-brands fa-itch-io"></i></a>
       <a href="mailto:mehmetalihanaydin0841@gmail.com" aria-label="Email"><i class="fa-regular fa-envelope"></i></a>
     </div>
     <p><span data-i18n="footer.rights">© 2026 Alihan Aydın — All rights reserved.</span></p>
@@ -2438,36 +2394,6 @@
     });
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-  function animateCounter(el) {
-    const target = parseInt(el.dataset.target);
-    const suffix = el.dataset.suffix || '';
-    if (prefersReducedMotion) {
-      el.textContent = target + suffix;
-      return;
-    }
-    const duration = 1200;
-    const step = target / (duration / 16);
-    let current = 0;
-    const timer = setInterval(() => {
-      current += step;
-      if (current >= target) {
-        el.textContent = target + suffix;
-        clearInterval(timer);
-      } else {
-        el.textContent = Math.floor(current) + suffix;
-      }
-    }, 16);
-  }
-  const statObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        animateCounter(entry.target);
-        statObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.5 });
-  document.querySelectorAll('.stat-number[data-target]').forEach(el => statObserver.observe(el));
 
   document.querySelectorAll('.glow-card').forEach(card => {
     card.addEventListener('mousemove', e => {
