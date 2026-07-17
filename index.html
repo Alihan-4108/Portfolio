@@ -411,13 +411,55 @@
       color: var(--accent); margin-bottom: 1rem;
     }
 
-    .skills-categories { display: flex; flex-direction: column; gap: 0.75rem; }
-    .skill-group { display: flex; flex-direction: column; gap: 5px; }
-    .skill-group-label {
-      font-size: 11px; color: var(--dimmed);
-      letter-spacing: 0.12em; text-transform: uppercase;
+    .skills-tree-eyebrow { margin-bottom: 1.25rem; }
+
+    .skills-tree-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
     }
+
+    @keyframes skillFloat {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-6px); }
+    }
+
+    .skill-category-card {
+      animation: skillFloat 4.5s ease-in-out var(--float-delay, 0s) infinite;
+    }
+    .skill-category-card:hover { animation-play-state: paused; }
+
+    .skill-category-card .glow-card-inner {
+      padding: 1.5rem 1.5rem;
+      display: flex; flex-direction: column; gap: 1rem;
+    }
+
+    .skill-cat-header { display: flex; align-items: center; gap: 10px; }
+
+    .skill-cat-icon {
+      width: 38px; height: 38px; flex-shrink: 0;
+      border-radius: 10px;
+      background: var(--accent-dim);
+      border: 1px solid var(--accent-border);
+      color: var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 15px;
+    }
+
+    .skill-cat-title {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 15px; font-weight: 600;
+      color: #fff; letter-spacing: 0.02em;
+    }
+
     .skills-grid { display: flex; flex-wrap: wrap; gap: 6px; }
+
+    @media (max-width: 900px) {
+      .skills-tree-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .skills-tree-grid { grid-template-columns: 1fr; }
+    }
 
     .skill-pill {
       font-size: 12px; padding: 4px 12px;
@@ -537,15 +579,24 @@
       grid-column: 1 / -1;
       display: flex; align-items: center; gap: 12px;
       margin-top: 14px;
-      font-size: 12px; font-weight: 500;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--dimmed);
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 14px; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--accent);
     }
     .games-cat-label:first-child { margin-top: 0; }
+    .games-cat-label::before {
+      content: '';
+      width: 7px; height: 7px;
+      border-radius: 2px;
+      background: var(--accent);
+      transform: rotate(45deg);
+      flex-shrink: 0;
+    }
     .games-cat-label::after {
       content: '';
       flex: 1; height: 1px;
-      background: linear-gradient(90deg, var(--border), transparent);
+      background: linear-gradient(90deg, var(--accent-border), transparent);
     }
     .games-cat-label.hidden { display: none; }
 
@@ -757,7 +808,65 @@
       color: var(--accent);
     }
 
-    .exp-list { display: flex; flex-direction: column; gap: 14px; }
+    /* Campaign-log timeline */
+    .journey {
+      position: relative;
+      padding-left: 56px;
+    }
+    .journey::before {
+      content: '';
+      position: absolute;
+      left: 19px; top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom,
+        var(--accent) 0%, rgba(45,212,191,0.35) 60%, rgba(45,212,191,0.05) 100%);
+      border-radius: 2px;
+    }
+
+    .journey-node {
+      position: relative;
+      display: flex;
+      margin-bottom: 10px;
+    }
+
+    .journey-spine {
+      position: absolute;
+      left: -56px; top: 0;
+      width: 40px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .journey-dot {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 2px solid var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px;
+      color: var(--accent);
+      z-index: 2;
+      position: relative;
+      transition: background 0.25s, box-shadow 0.25s, transform 0.25s;
+    }
+    .journey-dot.active {
+      background: var(--accent);
+      color: #062621;
+      box-shadow: 0 0 0 6px var(--accent-dim), 0 0 20px rgba(45,212,191,0.35);
+    }
+    .journey-node:hover .journey-dot {
+      transform: scale(1.12);
+      box-shadow: 0 0 0 6px var(--accent-dim), 0 0 20px rgba(45,212,191,0.25);
+    }
+
+    .journey-content { flex: 1; padding-bottom: 32px; }
+
+    @media (max-width: 640px) {
+      .journey { padding-left: 44px; }
+      .journey::before { left: 15px; }
+      .journey-spine { left: -44px; width: 32px; }
+      .journey-dot { width: 32px; height: 32px; font-size: 12px; }
+    }
 
     .exp-card {
       background: var(--bg2);
@@ -943,9 +1052,11 @@
 
     .contact-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 12px;
     }
+
+    .contact-card-wide { grid-column: 1 / -1; }
 
     .contact-card {
       background: var(--bg3);
@@ -977,9 +1088,7 @@
 
     .contact-val {
       font-size: 14px; color: var(--text);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      overflow-wrap: break-word;
     }
 
     .thumb-overlay {
@@ -1300,7 +1409,7 @@
 
     .section-eyebrow,
     .card-eyebrow        { font-size: 14px; }
-    .skill-group-label,
+    .skill-cat-title,
     .contact-label       { font-size: 13px; }
     .filter-btn          { font-size: 14px; }
     footer               { font-size: 13px; }
@@ -1465,13 +1574,16 @@
       </div>
     </div>
 
-    <div class="glow-card about-skills reveal reveal-delay-1">
-      <div class="glow-card-inner">
-        <span class="card-eyebrow" data-i18n="about.skillsLabel">Skills</span>
-        <div class="skills-categories">
+    <div class="about-skills reveal reveal-delay-1">
+      <span class="card-eyebrow skills-tree-eyebrow" data-i18n="about.skillsLabel">Skills</span>
+      <div class="skills-tree-grid">
 
-          <div class="skill-group">
-            <span class="skill-group-label" data-i18n="about.skillEngine">Engine & Language</span>
+        <div class="glow-card skill-category-card" style="--float-delay:0s">
+          <div class="glow-card-inner">
+            <div class="skill-cat-header">
+              <span class="skill-cat-icon"><i class="fa-solid fa-code" aria-hidden="true"></i></span>
+              <h3 class="skill-cat-title" data-i18n="about.skillEngine">Engine & Language</h3>
+            </div>
             <div class="skills-grid">
               <span class="skill-pill"><i class="fa-brands fa-unity"></i> Unity</span>
               <span class="skill-pill"><i class="fa-solid fa-code"></i> C#</span>
@@ -1481,9 +1593,14 @@
               <span class="skill-pill"><i class="fa-brands fa-php"></i> PHP</span>
             </div>
           </div>
+        </div>
 
-          <div class="skill-group">
-            <span class="skill-group-label" data-i18n="about.skillLibs">Frameworks & Libraries</span>
+        <div class="glow-card skill-category-card" style="--float-delay:0.4s">
+          <div class="glow-card-inner">
+            <div class="skill-cat-header">
+              <span class="skill-cat-icon"><i class="fa-solid fa-layer-group" aria-hidden="true"></i></span>
+              <h3 class="skill-cat-title" data-i18n="about.skillLibs">Frameworks & Libraries</h3>
+            </div>
             <div class="skills-grid">
               <span class="skill-pill">Zenject</span>
               <span class="skill-pill">Reflex</span>
@@ -1496,9 +1613,14 @@
               <span class="skill-pill"><i class="fa-solid fa-volume-high"></i> FMOD</span>
             </div>
           </div>
+        </div>
 
-          <div class="skill-group">
-            <span class="skill-group-label" data-i18n="about.skillUnitySys">Unity Systems & Tooling</span>
+        <div class="glow-card skill-category-card" style="--float-delay:0.8s">
+          <div class="glow-card-inner">
+            <div class="skill-cat-header">
+              <span class="skill-cat-icon"><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i></span>
+              <h3 class="skill-cat-title" data-i18n="about.skillUnitySys">Unity Systems & Tooling</h3>
+            </div>
             <div class="skills-grid">
               <span class="skill-pill"><i class="fa-solid fa-screwdriver-wrench"></i> Custom Editor Tools</span>
               <span class="skill-pill">Odin Inspector</span>
@@ -1510,9 +1632,14 @@
               <span class="skill-pill"><i class="fa-solid fa-gauge-high"></i> Profiler</span>
             </div>
           </div>
+        </div>
 
-          <div class="skill-group">
-            <span class="skill-group-label" data-i18n="about.skillPlatforms">Platforms & Tools</span>
+        <div class="glow-card skill-category-card" style="--float-delay:0.2s">
+          <div class="glow-card-inner">
+            <div class="skill-cat-header">
+              <span class="skill-cat-icon"><i class="fa-solid fa-toolbox" aria-hidden="true"></i></span>
+              <h3 class="skill-cat-title" data-i18n="about.skillPlatforms">Platforms & Tools</h3>
+            </div>
             <div class="skills-grid">
               <span class="skill-pill"><i class="fa-solid fa-mobile-screen"></i> <span data-i18n="about.mobile">Mobile (Android / iOS)</span></span>
               <span class="skill-pill"><i class="fa-brands fa-git-alt"></i> Git</span>
@@ -1520,8 +1647,8 @@
               <span class="skill-pill"><i class="fa-brands fa-trello"></i> Trello</span>
             </div>
           </div>
-
         </div>
+
       </div>
     </div>
 
@@ -1681,6 +1808,20 @@
           <p class="project-desc" data-i18n="proj.2048.desc">A prototype recreating the core mechanics of '2048'.</p>
           <div class="project-links">
             <a class="project-link" href="https://github.com/Alihan-4108/2048-Clone" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card" data-category="clone">
+        <div class="project-thumb">
+          <img loading="lazy" decoding="async" width="640" height="360" src="images/Arrow Clone.png" alt="Arrows - Puzzle Escape Puzzle Clone">
+        </div>
+        <div class="project-body">
+          <p class="project-name" style="font-size: 18px;">Arrows - Puzzle Escape Puzzle Clone</p>
+          <p class="project-tech">Unity · C#</p>
+          <p class="project-desc" data-i18n="proj.arrows.desc">A prototype recreating the core mechanics of 'Arrows - Puzzle Escape Puzzle'.</p>
+          <div class="project-links">
+            <a class="project-link" href="https://github.com/Alihan-4108/Arrows-Puzzle-Escape-Clone" target="_blank" rel="noopener">GitHub</a>
           </div>
         </div>
       </div>
@@ -1914,8 +2055,13 @@
   <p class="section-eyebrow reveal" data-i18n="exp.eyebrow">Experience</p>
   <h2 class="section-title reveal reveal-delay-1" data-i18n="exp.title">My journey</h2>
 
-  <div class="exp-list">
+  <div class="journey">
 
+    <div class="journey-node">
+      <div class="journey-spine">
+        <div class="journey-dot active"><i class="fa-solid fa-gamepad" aria-hidden="true"></i></div>
+      </div>
+      <div class="journey-content">
     <div class="exp-card">
       <div class="exp-header">
         <div>
@@ -1978,7 +2124,14 @@
         </div>
       </div>
     </div>
+      </div>
+    </div>
 
+    <div class="journey-node">
+      <div class="journey-spine">
+        <div class="journey-dot"><i class="fa-solid fa-gamepad" aria-hidden="true"></i></div>
+      </div>
+      <div class="journey-content">
     <div class="exp-card">
       <div class="exp-header">
         <div>
@@ -2057,6 +2210,8 @@
         </a>
       </div>
     </div>
+      </div>
+    </div>
 
   </div>
 </section>
@@ -2069,7 +2224,7 @@
 
   <div class="contact-grid">
 
-    <a class="contact-card" href="mailto:mehmetalihanaydin0841@gmail.com">
+    <a class="contact-card contact-card-wide" href="mailto:mehmetalihanaydin0841@gmail.com">
       <i class="fa-regular fa-envelope contact-icon"></i>
       <div class="contact-text">
         <p class="contact-label" data-i18n="contact.emailLabel">Email</p>
@@ -2204,6 +2359,7 @@
       'proj.2048.desc': "A prototype recreating the core mechanics of '2048'.",
       'proj.jhoony.desc': "A prototype recreating the core mechanics of 'Jhoony Trigger'.",
       'proj.matchFactory.desc': "A prototype recreating the core mechanics of 'Match Factory'.",
+      'proj.arrows.desc': "A prototype recreating the core mechanics of 'Arrows - Puzzle Escape Puzzle'.",
       'proj.pixelFall.desc': 'Avoid airplanes and birds. Collect gold coins. With this gold you can buy new characters on the market.',
       'proj.reflex.desc': 'Press the arrow directions as fast as possible before time runs out and test your reflexes.',
       'proj.serializer.desc': 'Working with ScriptableObjects often requires constantly opening assets just to tweak values. This tool removes that friction.',
@@ -2273,6 +2429,7 @@
       'proj.2048.desc': "'2048' oyununun temel mekaniklerini yeniden oluşturan bir prototip.",
       'proj.jhoony.desc': "'Jhoony Trigger' oyununun temel mekaniklerini yeniden oluşturan bir prototip.",
       'proj.matchFactory.desc': "'Match Factory' oyununun temel mekaniklerini yeniden oluşturan bir prototip.",
+      'proj.arrows.desc': "'Arrows - Puzzle Escape Puzzle' oyununun temel mekaniklerini yeniden oluşturan bir prototip.",
       'proj.pixelFall.desc': 'Uçaklardan ve kuşlardan kaç. Altın paralar topla. Bu altınlarla marketten yeni karakterler satın alabilirsin.',
       'proj.reflex.desc': 'Süre dolmadan ok yönlerine olabildiğince hızlı bas ve reflekslerini test et.',
       'proj.serializer.desc': "ScriptableObject'lerle çalışmak, sadece değerleri değiştirmek için sürekli asset açmayı gerektirir. Bu araç o zahmeti ortadan kaldırır.",
