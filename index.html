@@ -153,6 +153,12 @@
       background: rgba(45,212,191,0.25);
     }
 
+    #pixelBurst {
+      position: fixed; inset: 0;
+      pointer-events: none;
+      z-index: 9998;
+    }
+
     .c-dot, .c-ring {
       display: none;
       position: fixed; pointer-events: none;
@@ -770,7 +776,7 @@
       .badge-new { animation: none; }
     }
 
-    /* NEW pill floating on the corner of the hero Unity Tools button */
+    /* NEW pill floating on the corner of the hero View Projects button */
     .hero-btns .btn { position: relative; }
     .hero-btn-new {
       top: -9px; left: auto; right: -10px;
@@ -1256,6 +1262,101 @@
       border: none; display: block;
     }
 
+    .vm-gallery {
+      padding: 0 1rem 1rem;
+      background: var(--bg2);
+    }
+
+    .vm-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .vm-gallery-thumb {
+      aspect-ratio: 16/9;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: #000;
+      cursor: pointer;
+      padding: 0;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .vm-gallery-thumb:hover {
+      border-color: var(--accent-border);
+      transform: translateY(-2px);
+    }
+    .vm-gallery-thumb img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .vm-gallery-back {
+      position: absolute; top: 10px; left: 10px;
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.55);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: #fff; font-size: 13px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .vm-gallery-back:hover {
+      background: rgba(45,212,191,0.35);
+      border-color: var(--accent-border);
+    }
+
+    .vm-gallery-inner {
+      position: relative;
+      aspect-ratio: 16/9;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .vm-gallery-inner img {
+      width: 100%; height: 100%;
+      object-fit: contain;
+      display: block;
+      user-select: none;
+    }
+
+    .vm-gallery-nav {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.55);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: #fff; font-size: 14px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .vm-gallery-nav:hover {
+      background: rgba(45,212,191,0.35);
+      border-color: var(--accent-border);
+    }
+    .vm-gallery-prev { left: 10px; }
+    .vm-gallery-next { right: 10px; }
+
+    .vm-gallery-dots {
+      position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);
+      display: flex; gap: 6px;
+    }
+    .vm-gallery-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: rgba(255,255,255,0.35);
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .vm-gallery-dot.active {
+      background: var(--accent);
+      transform: scale(1.25);
+    }
+
     .scroll-progress {
       position: fixed; top: 0; left: 0; z-index: 9000;
       height: 2px; width: 0%;
@@ -1292,6 +1393,26 @@
       background: var(--accent-dim);
       color: var(--accent);
       box-shadow: inset 0 0 0 0.5px var(--accent-border);
+    }
+
+    .nav-cv-btn {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 12.5px; font-weight: 600; letter-spacing: 0.04em;
+      padding: 7px 16px;
+      border-radius: 100px;
+      border: 0.5px solid var(--accent-border);
+      background: var(--accent-dim);
+      color: var(--accent);
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    }
+    .nav-cv-btn i { font-size: 11px; }
+    .nav-cv-btn:hover {
+      background: rgba(45,212,191,0.25);
+      border-color: rgba(45,212,191,0.6);
+      transform: translateY(-1px);
     }
 
     .nav-hamburger {
@@ -1397,6 +1518,9 @@
       .about-role { grid-column: 1 / 3; }
       .stat-sep { display: none; }
       .jump-tools-link { margin-left: 0; }
+      .nav-cv-btn span { display: none; }
+      .nav-cv-btn { padding: 8px; width: 32px; height: 32px; justify-content: center; }
+      .nav-cv-btn i { font-size: 13px; }
     }
     @media (max-width: 420px) {
       .contact-grid { grid-template-columns: 1fr; }
@@ -1425,48 +1549,49 @@
       #typewriter::after { animation: none !important; }
     }
 
-    .exp-game-tag        { font-size: 12px; }
-    .exp-tag             { font-size: 12.5px; }
+    .exp-game-tag        { font-size: 13px; }
+    .exp-tag             { font-size: 13.5px; }
     .exp-date,
-    .cert-date           { font-size: 12.5px; }
-    .skill-pill          { font-size: 13px; }
-    .cert-link           { font-size: 13px; }
-    .vm-type-badge       { font-size: 12.5px; }
-    .hero-tag            { font-size: 12.5px; }
+    .cert-date           { font-size: 13.5px; }
+    .skill-pill          { font-size: 14px; }
+    .cert-link           { font-size: 14px; }
+    .vm-type-badge       { font-size: 13.5px; }
+    .hero-tag            { font-size: 13.5px; }
     .lang-opt            { font-size: 13px; }
 
     .section-eyebrow,
-    .card-eyebrow        { font-size: 14px; }
-    .skill-cat-title,
+    .card-eyebrow        { font-size: 15px; }
+    .skill-cat-title     { font-size: 16px; }
     .contact-label       { font-size: 13px; }
-    .filter-btn          { font-size: 14px; }
-    footer               { font-size: 13px; }
-    .vm-tech             { font-size: 14px; }
-    .project-tech        { font-size: 13px; }
+    .filter-btn          { font-size: 15px; }
+    footer               { font-size: 14px; }
+    .vm-tech             { font-size: 15px; }
+    .project-tech        { font-size: 14px; }
 
     .bio-text,
-    .vm-desc             { font-size: 15.5px; }
+    .vm-desc             { font-size: 16.5px; }
     .exp-desc,
-    .project-desc        { font-size: 15px; }
-    .exp-game-desc       { font-size: 14.5px; }
+    .project-desc        { font-size: 16px; }
+    .exp-game-desc       { font-size: 15.5px; }
     .cert-issuer,
-    .project-client      { font-size: 14px; }
-    .contact-val         { font-size: 15px; }
-    .project-link        { font-size: 14px; }
-    #games-grid .project-link { font-size: 15px; }
+    .project-client      { font-size: 15px; }
+    .contact-val         { font-size: 16px; }
+    .project-link        { font-size: 15px; }
+    #games-grid .project-link { font-size: 16px; }
     .btn,
-    .vm-link-btn         { font-size: 15px; }
-    .hero-sub            { font-size: 18px; }
+    .vm-link-btn         { font-size: 16px; }
+    .hero-sub            { font-size: 19px; }
 
-    .exp-game-name       { font-size: 16px; }
-    .cert-name           { font-size: 19px; }
-    .project-name        { font-size: 20px; }
-    #games-grid .project-name { font-size: 25px; }
+    .exp-game-name       { font-size: 17px; }
+    .cert-name           { font-size: 20px; }
+    .project-name        { font-size: 21px; }
+    #games-grid .project-name { font-size: 26px; }
   </style>
 </head>
 <body>
 
 <div class="scroll-progress" id="scrollProgress"></div>
+<canvas id="pixelBurst"></canvas>
 <div class="c-dot" id="cDot"></div>
 <div class="c-ring" id="cRing"></div>
 <button class="back-to-top" id="backToTop" aria-label="Back to top">
@@ -1482,6 +1607,9 @@
     <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
   </ul>
   <div class="nav-right">
+    <a class="nav-cv-btn" href="images/Mehmet Alihan Aydin - CV.pdf" target="_blank" rel="noopener" download="Mehmet Alihan Aydin - CV.pdf" aria-label="Download CV">
+      <i class="fa-solid fa-download" aria-hidden="true"></i><span data-i18n="hero.downloadCV">Download CV</span>
+    </a>
     <div class="lang-toggle" id="langToggle" role="group" aria-label="Language switcher">
       <button type="button" class="lang-opt" data-lang="tr">TR</button>
       <button type="button" class="lang-opt" data-lang="en">EN</button>
@@ -1507,8 +1635,8 @@
   </p>
 
   <div class="hero-btns">
-    <a class="btn btn-accent" href="#projects" data-i18n="hero.viewProjects">View Projects</a>
-    <a class="btn btn-outline" href="#tools" data-new-until="2026-08-31"><i class="fa-solid fa-screwdriver-wrench" style="margin-right:8px; color:var(--accent);" aria-hidden="true"></i><span data-i18n="hero.unityTools">Unity Tools</span><span class="badge-new hero-btn-new" data-i18n="projects.badgeNew">NEW</span></a>
+    <a class="btn btn-accent" href="#projects" data-new-until="2026-09-30"><span data-i18n="hero.viewProjects">View Projects</span><span class="badge-new hero-btn-new" data-i18n="projects.badgeNew">NEW</span></a>
+    <a class="btn btn-outline" href="#tools"><i class="fa-solid fa-screwdriver-wrench" style="margin-right:8px; color:var(--accent);" aria-hidden="true"></i><span data-i18n="hero.unityTools">Unity Tools</span></a>
     <a class="btn btn-outline" href="#contact" data-i18n="hero.contactMe">Contact Me</a>
   </div>
 
@@ -1754,6 +1882,36 @@
 
       <div class="games-cat-label" data-i18n="projects.filterProfessional">Professional</div>
 
+      <div class="project-card" data-category="professional" data-new-until="2026-09-30">
+        <div class="project-thumb"
+             data-name="Samurai: Blood Bound"
+             data-tech="Unity · C# · Mobile"
+             data-desc="A 2D pixel-art samurai action platformer."
+             data-desc-tr="2D piksel sanatı tarzında bir samuray aksiyon platform oyunu."
+             data-link="https://play.google.com/store/apps/details?id=com.chronokrit.samuraibloodbound&hl=tr"
+             data-link-label="Google Play"
+             data-type="Company Project"
+             data-type-tr="Şirket Projesi"
+             data-gallery="images/Samurai/1920x1080 3.png, images/Samurai/1920x1080 19.png, images/Samurai/1920x1080 20.png, images/Samurai/1920x1080 23.png, images/Samurai/1920x1080 25.png, images/Samurai/1920x1080 28.png, images/Samurai/1920x1080 42.png, images/Samurai/1920x1080 74.png">
+          <span class="badge-new" data-i18n="projects.badgeNew">NEW</span>
+          <img loading="lazy" decoding="async" width="640" height="360" src="images/Samurai.png" alt="Samurai: Blood Bound">
+          <div class="thumb-overlay">
+            <button class="btn-details" data-i18n="projects.details">Details</button>
+          </div>
+        </div>
+        <div class="project-body">
+          <p class="project-name">Samurai: Blood Bound</p>
+          <p class="project-tech">Unity · C# · Mobile</p>
+          <div style="display:flex; flex-direction:column; align-items:flex-start; gap:4px; margin-bottom:8px;">
+            <span class="vm-type-badge" style="margin:0;" data-i18n="projects.company">Company Project</span>
+          </div>
+          <p class="project-desc" data-i18n="proj.samuraiBloodbound.desc">A 2D pixel-art samurai action platformer.</p>
+          <div class="project-links">
+            <a class="project-link" href="https://play.google.com/store/apps/details?id=com.chronokrit.samuraibloodbound&hl=tr" target="_blank" rel="noopener">Google Play</a>
+          </div>
+        </div>
+      </div>
+
       <div class="project-card" data-category="professional">
         <div class="project-thumb" style="background:#fff;"
              data-video="-xuz6ONXkgA"
@@ -1763,7 +1921,6 @@
              data-desc-tr="Takımlarını seç, gerisini simülasyona bırak! Son düdüğe kadar süren heyecana katılmak için hemen indir. İster kendi liganı oluştur, ister arkadaşlarınla tahmin yarışmaları yaparak eğlen!"
              data-link="https://play.google.com/store/apps/details?id=com.GoalUp.PaintFutbol&hl=tr"
              data-link-label="Google Play"
-             data-client="Goal Up"
              data-type="Freelance Project"
              data-type-tr="Serbest Proje">
           <img loading="lazy" decoding="async" width="640" height="360" src="images/Paint Futbol.png" alt="Paint Futbol">
@@ -1776,7 +1933,6 @@
           <p class="project-tech">Unity · C# · Mobile</p>
           <div style="display:flex; flex-direction:column; align-items:flex-start; gap:4px; margin-bottom:8px;">
             <span class="vm-type-badge" style="margin:0;" data-i18n="projects.freelance">Freelance Project</span>
-            <p class="project-client" style="margin:0;"><span data-i18n="projects.developedFor">Developed for</span> <span>Goal Up</span></p>
           </div>
           <p class="project-desc" data-i18n="proj.paintFutbol.desc">Pick your teams and let the simulation do the rest! Download now to join in the excitement right up to the final whistle. Whether you want to create your own league or have fun with prediction competitions with your friends!</p>
           <div class="project-links">
@@ -1984,7 +2140,7 @@
 
     <div class="projects-grid" id="tools-grid">
 
-      <div class="project-card" data-new-until="2026-08-31">
+      <div class="project-card">
         <div class="project-thumb"
              data-video="WD79kHazCl4"
              data-name="Scene Switcher Bar"
@@ -1994,7 +2150,6 @@
              data-github="https://github.com/Alihan-4108/Scene-Switcher-Bar"
              data-link="https://github.com/Alihan-4108/Scene-Switcher-Bar"
              data-link-label="GitHub">
-          <span class="badge-new" data-i18n="projects.badgeNew">NEW</span>
           <img loading="lazy" decoding="async" width="640" height="360" src="images/scene switch.png" alt="Scene Switcher Bar">
           <div class="thumb-overlay">
             <button class="btn-details" data-i18n="projects.details">Details</button>
@@ -2096,9 +2251,12 @@
     </div>
   </div>
 
-  <div style="text-align:center; margin-top: 32px;">
+  <div style="text-align:center; margin-top: 32px; display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
     <a class="btn btn-outline" href="https://github.com/Alihan-4108" target="_blank" rel="noopener">
       <i class="fa-brands fa-github" style="margin-right: 8px;"></i><span data-i18n="projects.moreGithub">More Projects on GitHub</span>
+    </a>
+    <a class="btn btn-outline" href="images/Mehmet Alihan Aydin - CV.pdf" target="_blank" rel="noopener" download="Mehmet Alihan Aydin - CV.pdf">
+      <i class="fa-solid fa-download" style="margin-right: 8px; color:var(--accent);"></i><span data-i18n="hero.downloadCV">Download CV</span>
     </a>
   </div>
 
@@ -2333,9 +2491,20 @@
 
     <p class="vm-desc" id="vmDesc"></p>
 
-    <div class="vm-video">
+    <div class="vm-video" id="vmVideo">
       <div class="vm-video-inner">
         <iframe id="videoModalFrame" src="" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+    </div>
+
+    <div class="vm-gallery" id="vmGallery" style="display:none;">
+      <div class="vm-gallery-grid" id="vmGalleryGrid"></div>
+      <div class="vm-gallery-inner" id="vmGalleryInner" style="display:none;">
+        <img id="vmGalleryImg" src="" alt="">
+        <button class="vm-gallery-nav vm-gallery-prev" id="vmGalleryPrev" aria-label="Previous image"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="vm-gallery-nav vm-gallery-next" id="vmGalleryNext" aria-label="Next image"><i class="fa-solid fa-chevron-right"></i></button>
+        <button class="vm-gallery-back" id="vmGalleryBack" aria-label="Back to grid"><i class="fa-solid fa-grip"></i></button>
+        <div class="vm-gallery-dots" id="vmGalleryDots"></div>
       </div>
     </div>
 
@@ -2374,6 +2543,7 @@
       'about.location': 'Kocaeli, Türkiye',
       'hero.viewProjects': 'View Projects',
       'hero.contactMe': 'Contact Me',
+      'hero.downloadCV': 'Download CV',
       'hero.unityTools': 'Unity Tools',
       'about.eyebrow': 'About',
       'about.title': 'Who I Am',
@@ -2405,8 +2575,10 @@
       'projects.details': 'Details',
       'projects.developedFor': 'Developed for',
       'projects.freelance': 'Freelance Project',
+      'projects.company': 'Company Project',
       'projects.moreGithub': 'More Projects on GitHub',
       'proj.paintFutbol.desc': 'Pick your teams and let the simulation do the rest! Download now to join in the excitement right up to the final whistle. Whether you want to create your own league or have fun with prediction competitions with your friends!',
+      'proj.samuraiBloodbound.desc': 'A 2D pixel-art samurai action platformer.',
       'proj.finalGlow.desc': 'Just when all hope of survival has faded, things take a turn with the crescent moon, which offers us one last glimmer of hope. Or are we so utterly spent that even the crescent moon cannot help us?',
       'proj.stickman.desc': "A prototype in which I have cloned the mechanics of the game 'Stickman Hook'.",
       'proj.circle.desc': "A prototype recreating the core mechanics of 'Circle'.",
@@ -2445,6 +2617,7 @@
       'about.location': 'Kocaeli, Türkiye',
       'hero.viewProjects': 'Projeleri Gör',
       'hero.contactMe': 'İletişime Geç',
+      'hero.downloadCV': 'CV İndir',
       'hero.unityTools': 'Unity Araçları',
       'about.eyebrow': 'Hakkımda',
       'about.title': 'Ben Kimim',
@@ -2476,8 +2649,10 @@
       'projects.details': 'Detaylar',
       'projects.developedFor': 'Şunun için geliştirildi:',
       'projects.freelance': 'Serbest Proje',
+      'projects.company': 'Şirket Projesi',
       'projects.moreGithub': "GitHub'da Daha Fazla Proje",
       'proj.paintFutbol.desc': 'Takımlarını seç, gerisini simülasyona bırak! Son düdüğe kadar süren heyecana katılmak için hemen indir. İster kendi liganı oluştur, ister arkadaşlarınla tahmin yarışmaları yaparak eğlen!',
+      'proj.samuraiBloodbound.desc': '2D piksel sanatı tarzında bir samuray aksiyon platform oyunu.',
       'proj.finalGlow.desc': 'Hayatta kalma umudunun tükendiği anda, bize son bir umut ışığı sunan hilal ile işler değişir. Yoksa o kadar tükendik mi ki hilal bile bize yardım edemez mi?',
       'proj.stickman.desc': "'Stickman Hook' oyununun mekaniklerini klonladığım bir prototip.",
       'proj.circle.desc': "'Circle' oyununun temel mekaniklerini yeniden oluşturan bir prototip.",
@@ -2670,6 +2845,37 @@
   const vmLinkLabel  = document.getElementById('vmLinkLabel');
   const vmClient     = document.getElementById('vmClient');
   const vmClientName = document.getElementById('vmClientName');
+  const vmVideo      = document.getElementById('vmVideo');
+  const vmGallery    = document.getElementById('vmGallery');
+  const vmGalleryGrid  = document.getElementById('vmGalleryGrid');
+  const vmGalleryInner = document.getElementById('vmGalleryInner');
+  const vmGalleryImg  = document.getElementById('vmGalleryImg');
+  const vmGalleryDots = document.getElementById('vmGalleryDots');
+  const vmGalleryPrev = document.getElementById('vmGalleryPrev');
+  const vmGalleryNext = document.getElementById('vmGalleryNext');
+  const vmGalleryBack = document.getElementById('vmGalleryBack');
+  let galleryImages = [];
+  let galleryIndex = 0;
+
+  function openGalleryImage(index) {
+    galleryIndex = index;
+    renderGalleryImage();
+    vmGalleryGrid.style.display = 'none';
+    vmGalleryInner.style.display = 'block';
+  }
+
+  function backToGalleryGrid() {
+    vmGalleryInner.style.display = 'none';
+    vmGalleryGrid.style.display = 'grid';
+  }
+
+  function renderGalleryImage() {
+    vmGalleryImg.src = galleryImages[galleryIndex];
+    vmGalleryImg.alt = vmTitle.textContent + ' screenshot ' + (galleryIndex + 1);
+    vmGalleryDots.querySelectorAll('.vm-gallery-dot').forEach((dot, i) => {
+      dot.classList.toggle('active', i === galleryIndex);
+    });
+  }
 
   const richDescriptions = {
     en: {
@@ -2711,11 +2917,28 @@
     } else {
       vmFooter.style.display = 'none';
     }
-    var embedSrc = 'https://www.youtube-nocookie.com/embed/' + thumb.dataset.video + '?autoplay=1&rel=0';
-    if (location.origin && location.origin !== 'null' && /^https?:/.test(location.origin)) {
-      embedSrc += '&origin=' + encodeURIComponent(location.origin);
+    if (thumb.dataset.gallery) {
+      galleryImages = thumb.dataset.gallery.split(',').map(s => s.trim()).filter(Boolean);
+      galleryIndex = 0;
+      vmGalleryDots.innerHTML = galleryImages.map((_, i) =>
+        '<span class="vm-gallery-dot' + (i === 0 ? ' active' : '') + '" data-index="' + i + '"></span>'
+      ).join('');
+      vmGalleryGrid.innerHTML = galleryImages.map((src, i) =>
+        '<button type="button" class="vm-gallery-thumb" data-index="' + i + '"><img loading="lazy" src="' + src + '" alt="' + (thumb.dataset.name || '') + ' screenshot ' + (i + 1) + '"></button>'
+      ).join('');
+      backToGalleryGrid();
+      vmGallery.style.display = 'block';
+      vmVideo.style.display = 'none';
+      modalFrame.src = '';
+    } else {
+      var embedSrc = 'https://www.youtube-nocookie.com/embed/' + thumb.dataset.video + '?autoplay=1&rel=0';
+      if (location.origin && location.origin !== 'null' && /^https?:/.test(location.origin)) {
+        embedSrc += '&origin=' + encodeURIComponent(location.origin);
+      }
+      modalFrame.src = embedSrc;
+      vmVideo.style.display = 'block';
+      vmGallery.style.display = 'none';
     }
-    modalFrame.src = embedSrc;
     modal.classList.add('open');
     document.body.style.overflow = 'hidden';
   }
@@ -2726,7 +2949,28 @@
     document.body.style.overflow = '';
   }
 
-  document.querySelectorAll('.project-thumb[data-video] .btn-details').forEach(btn => {
+  vmGalleryPrev.addEventListener('click', () => {
+    galleryIndex = (galleryIndex - 1 + galleryImages.length) % galleryImages.length;
+    renderGalleryImage();
+  });
+  vmGalleryNext.addEventListener('click', () => {
+    galleryIndex = (galleryIndex + 1) % galleryImages.length;
+    renderGalleryImage();
+  });
+  vmGalleryDots.addEventListener('click', e => {
+    const dot = e.target.closest('.vm-gallery-dot');
+    if (!dot) return;
+    galleryIndex = parseInt(dot.dataset.index, 10);
+    renderGalleryImage();
+  });
+  vmGalleryGrid.addEventListener('click', e => {
+    const thumb = e.target.closest('.vm-gallery-thumb');
+    if (!thumb) return;
+    openGalleryImage(parseInt(thumb.dataset.index, 10));
+  });
+  vmGalleryBack.addEventListener('click', backToGalleryGrid);
+
+  document.querySelectorAll('.project-thumb[data-video] .btn-details, .project-thumb[data-gallery] .btn-details').forEach(btn => {
     btn.addEventListener('click', () => openModal(btn.closest('.project-thumb')));
   });
 
@@ -2783,6 +3027,62 @@
     el.addEventListener('mouseenter', () => cRing.classList.add('hovered'));
     el.addEventListener('mouseleave', () => cRing.classList.remove('hovered'));
   });
+
+  // Pixel-art particle burst on click
+  if (!prefersReducedMotion) {
+    (function() {
+      const canvas = document.getElementById('pixelBurst');
+      const ctx = canvas.getContext('2d');
+      const dpr = window.devicePixelRatio || 1;
+      const colors = ['#2dd4bf', '#5eead4', '#f8fafc', '#facc15'];
+      let particles = [];
+
+      function resize() {
+        canvas.width = window.innerWidth * dpr;
+        canvas.height = window.innerHeight * dpr;
+        canvas.style.width = window.innerWidth + 'px';
+        canvas.style.height = window.innerHeight + 'px';
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      }
+      resize();
+      window.addEventListener('resize', resize);
+
+      document.addEventListener('click', e => {
+        const count = 10 + Math.floor(Math.random() * 6);
+        for (let i = 0; i < count; i++) {
+          const angle = Math.random() * Math.PI * 2;
+          const speed = 1.5 + Math.random() * 3.5;
+          particles.push({
+            x: e.clientX, y: e.clientY,
+            vx: Math.cos(angle) * speed,
+            vy: Math.sin(angle) * speed - 1,
+            size: 2 + Math.round(Math.random() * 2),
+            color: colors[Math.floor(Math.random() * colors.length)],
+            life: 1,
+            decay: 0.02 + Math.random() * 0.02
+          });
+        }
+      });
+
+      (function tick() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => {
+          p.x += p.vx;
+          p.y += p.vy;
+          p.vy += 0.12;
+          p.life -= p.decay;
+        });
+        particles = particles.filter(p => p.life > 0);
+        particles.forEach(p => {
+          ctx.globalAlpha = Math.max(p.life, 0);
+          ctx.fillStyle = p.color;
+          ctx.fillRect(Math.round(p.x - p.size / 2), Math.round(p.y - p.size / 2), p.size, p.size);
+        });
+        ctx.globalAlpha = 1;
+        requestAnimationFrame(tick);
+      })();
+    })();
+  }
 
   const scrollProgress = document.getElementById('scrollProgress');
   window.addEventListener('scroll', () => {
